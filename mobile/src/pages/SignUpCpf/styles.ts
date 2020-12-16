@@ -36,6 +36,7 @@ export const SubTitle = styled.Text`
     margin: 0;
 `;
 
+
 export const BackToSignIn = styled.TouchableOpacity`
     position: absolute;
     left: 0;
@@ -61,3 +62,4 @@ export const BackToSignInText = styled.Text`
 
     margin-left: 16px;
 `;
+

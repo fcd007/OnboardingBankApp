@@ -142,7 +142,7 @@ const SignIn: React.FC = () => {
                               Esqueci minha senha
                           </ForgotPasswordText>
                       </ForgotPassword>
-                      <BackToHome onPress={() => navigation.goBack()} >
+                      <BackToHome onPress={() => navigation.navigate('Home')} >
                         <Icon name="arrow-left" size={ 20 } color="#f4ede8" />
                         <BackToSignInText>
                           Voltar para início

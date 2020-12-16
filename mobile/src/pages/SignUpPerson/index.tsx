@@ -1,7 +1,6 @@
 import React, { useRef, useCallback } from 'react';
 import {
   Image,
-  View,
   ScrollView,
   KeyboardAvoidingView,
   Platform,
@@ -27,27 +26,24 @@ import {
   Container,
   Title,
   SubTitle,
-  BackToSignIn,
-  BackToSignInText,
   TopHeader,
+  BackToSignIn,
+  BackToSignInText
 } from './styles';
 
 interface SignUpFormData {
   name: string;
   email: string;
-  password: string;
 }
 
-const SignUp: React.FC = () => {
+const SignUpPerson: React.FC = () => {
     const navigation = useNavigation();
 
     const formRef = useRef<FormHandles>(null);
 
     const emailInputRef = useRef<TextInput>(null);
 
-    const passwordInputRef = useRef<TextInput>(null);
-
-    const handleSignUp = useCallback(
+    const handleSignPerson= useCallback(
         async (data: SignUpFormData) => {
           try {
             formRef.current?.setErrors({});
@@ -55,8 +51,7 @@ const SignUp: React.FC = () => {
               name: Yup.string().required('Nome obrigatório'),
               email: Yup.string()
                 .required('E-mail obrigatório')
-                .email('Digite um e-mail válido'),
-              password: Yup.string().min(8, 'Senha com mínimo de 8 caracteres'),
+                // .email('Digite um e-mail válido'),
             });
 
             await schema.validate(data, {
@@ -104,15 +99,12 @@ const SignUp: React.FC = () => {
                 >
                     <TopHeader>
                       <Image source={ logoImg } />
-                      {/* <View> */}
-                          <Title>Vamos começar?</Title>
-                          <SubTitle>É rapidinho</SubTitle>
-                        {/* </View> */}
+                        <Title>Falta pouco... tá?!</Title>
                     </TopHeader>
                     <Container>
                         <Form
                             ref={formRef}
-                            onSubmit={handleSignUp}
+                            onSubmit={handleSignPerson}
                         >
                             <Input
                                 autoCapitalize="words"
@@ -135,39 +127,29 @@ const SignUp: React.FC = () => {
                                 placeholder="Digite seu e-mail"
                                 returnKeyType="next"
                                 onSubmitEditing={() => {
-                                    passwordInputRef.current?.focus();
-                                }}
-                            />
-
-                            <Input
-                                ref={passwordInputRef}
-                                secureTextEntry
-                                name="password"
-                                icon="lock"
-                                placeholder="Digite sua senha"
-                                textContentType="newPassword"
-                                returnKeyType="send"
-                                onSubmitEditing={() => {
-                                    formRef.current?.submitForm();
+                                  formRef.current?.submitForm();
                                 }}
                             />
                         </Form>
-                        <Button onPress={() => formRef.current?.submitForm()}>
-                            Cadastrar
+                        <Button onPress={() =>{
+                          formRef.current?.submitForm()
+                          navigation.navigate('SignUpCont')
+                          }}>
+                            Próximo Passo
                         </Button>
 
                     </Container>
                 </ScrollView>
             </KeyboardAvoidingView>
-{/*
-            <BackToSignIn onPress={() => navigation.goBack()} >
+
+            <BackToSignIn onPress={() => navigation.goBack()}>
                 <Icon name="arrow-left" size={ 20 } color="#f4ede8" />
                 <BackToSignInText>
-                    Voltar para login
+                    Voltar
                 </BackToSignInText>
-            </BackToSignIn> */}
+            </BackToSignIn>
         </>
     );
 }
 
-export default SignUp;
+export default SignUpPerson;

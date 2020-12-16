@@ -49,7 +49,7 @@ const Home: React.FC = () => {
                         <Button onPress={() => navigation.navigate('SignIn')}>
                           Entrar na minha conta
                         </Button>
-                        <ButtonCreate onPress={() => navigation.navigate('SignUp')}>
+                        <ButtonCreate onPress={() => navigation.navigate('SignUpCpf')}>
                           Criar minha conta
                         </ButtonCreate>
                         <VersionApp>Versão 1.0.1</VersionApp>
