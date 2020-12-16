@@ -16,9 +16,11 @@ import ButtonCreate from '../../components/ButtonCreate';
 import logoImg from '../../assets/logo.png';
 
 import {
-  TopContainer,
+  NavegationOption,
   Container,
-  Title
+  Title,
+  SubTitle,
+  VersionApp
 } from './styles';
 
 const Home: React.FC = () => {
@@ -38,18 +40,20 @@ const Home: React.FC = () => {
                 >
                     <Container>
                         <Image source={ logoImg } />
+                            <SubTitle>Seu banco digital, bem na sua mão!</SubTitle>
                           <View>
                             <Title>BEM-VINDO(A)!</Title>
                           </View>
                     </Container>
-                    <TopContainer>
+                    <NavegationOption>
                         <Button onPress={() => navigation.navigate('SignIn')}>
                           Entrar na minha conta
                         </Button>
                         <ButtonCreate onPress={() => navigation.navigate('SignUp')}>
                           Criar minha conta
                         </ButtonCreate>
-                    </TopContainer>
+                        <VersionApp>Versão 1.0.1</VersionApp>
+                    </NavegationOption>
                 </ScrollView>
             </KeyboardAvoidingView>
         </>
