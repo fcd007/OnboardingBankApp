@@ -7,7 +7,7 @@ export const Container = styled.View`
     flex:1;
     align-items: center;
     justify-content: center;
-    padding: 0 30px ${Platform.OS === 'android' ? 10 : 40}px;
+    padding: 0 30px ${Platform.OS === 'android' ? 0: 40}px;
     background: #4B55C1;
 `;
 
@@ -15,7 +15,7 @@ export const NavegationOption = styled.View`
     flex:1;
     align-items: center;
     justify-content: center;
-    padding: 0 30px ${Platform.OS === 'android' ? 150 : 40}px;
+    padding: 0 30px ${Platform.OS === 'android' ? 34 : 40}px;
     background: #fefefe;
 `;
 
@@ -29,7 +29,7 @@ export const Title = styled.Text`
 `;
 
 export const SubTitle = styled.Text`
-    font-family: 'RobotoSlab';
+    font-family: 'RobotoSlab-Regular';
 
     color: #f4ede8;
     font-size: 16px;
@@ -38,7 +38,7 @@ export const SubTitle = styled.Text`
 `;
 
 export const VersionApp = styled.Text`
-    font-family: 'RobotoSlab';
+    font-family: 'RobotoSlab-Regular';
 
     background: #fefefe;
     color: #A8A6A6;

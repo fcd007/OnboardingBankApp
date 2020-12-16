@@ -1,8 +1,8 @@
-import React, { 
-    useEffect, 
+import React, {
+    useEffect,
     useCallback,
-    useRef, 
-    useImperativeHandle, 
+    useRef,
+    useImperativeHandle,
     forwardRef,
     useState,
  } from 'react';
@@ -10,10 +10,10 @@ import React, {
 import { TextInputProps } from 'react-native';
 import { useField } from '@unform/core';
 
-import { 
-    Container, 
-    TextInput, 
-    Icon 
+import {
+    Container,
+    TextInput,
+    Icon
 } from './styles';
 
 interface InputProps extends TextInputProps {
@@ -30,7 +30,7 @@ interface InputRef {
 }
 
 const Input: React.ForwardRefRenderFunction<InputRef , InputProps> = (
-    { name, icon, ...rest }, 
+    { name, icon, ...rest },
     ref,
     ) => {
 
@@ -72,15 +72,15 @@ const Input: React.ForwardRefRenderFunction<InputRef , InputProps> = (
             }
         });
     },[fieldName, registerField]);
-    
+
     return (
         <Container isFocused={isFocused} isErrored={!!error}>
-            <Icon name={ icon } size={ 20 } color={isFocused || isFilled ? '#ff9000' : '#666360'}/>
-            <TextInput 
+            <Icon name={ icon } size={ 20 } color={isFocused || isFilled ? '#5E67C8' : '#666360'}/>
+            <TextInput
                 ref={inputElementRef}
                 keyboardAppearance="dark"
                 defaultValue={defaultValue}
-                placeholderTextColor="#666360" 
+                placeholderTextColor="#666360"
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
                 onChangeText={(value) => {

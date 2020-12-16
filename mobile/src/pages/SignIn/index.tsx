@@ -5,7 +5,6 @@ import React, {
 
 import {
   Image,
-  View,
   ScrollView,
   KeyboardAvoidingView,
   Platform,
@@ -32,10 +31,12 @@ import logoImg from '../../assets/logo.png';
 import {
   Container,
   Title,
+  SubTitle,
   ForgotPassword,
   ForgotPasswordText,
-  CreatAccountButton,
-  CreatAccountButtonText
+  TopHeader,
+  BackToHome,
+  BackToSignInText
 } from './styles';
 
 interface SignDataForm {
@@ -92,65 +93,64 @@ const SignIn: React.FC = () => {
                 behavior={ Platform.OS === 'ios' ? 'padding': undefined }
                 enabled
             >
+
                 <ScrollView
                     keyboardShouldPersistTaps="handled"
                     contentContainerStyle={{ flex:1 }}
                 >
-                    <Container>
-                        <Image source={ logoImg } />
+                  <TopHeader>
+                    <Image source={ logoImg } />
+                    <Title>Quero entrar</Title>
+                    <SubTitle>Na minha conta</SubTitle>
+                  </TopHeader>
+                  <Container>
+                      <Form ref={formRef} onSubmit={ handleSignIn }>
+                          <Input
+                              autoCorrect={false}
+                              autoCapitalize="none"
+                              keyboardType="email-address"
+                              name="email"
+                              icon="mail"
+                              placeholder="E-mail"
+                              returnKeyType="next"
+                              onSubmitEditing={() => {
+                                  passwordInputRef.current?.focus();
+                              }}
+                          />
 
-                        <View>
-                            <Title> Faça seu logon</Title>
-                        </View>
+                          <Input
+                              ref={passwordInputRef}
+                              name="password"
+                              icon="lock"
+                              placeholder="Digite sua senha"
+                              secureTextEntry
+                              returnKeyType="send"
+                              onSubmitEditing={() => {
+                                  formRef.current?.submitForm();
+                              }}
+                          />
+                      </Form>
+                      <Button
+                          onPress={() => {
+                              formRef.current?.submitForm();
+                          }}
+                          > Entrar
+                      </Button>
 
-                        <Form ref={formRef} onSubmit={ handleSignIn }>
-                            <Input
-                                autoCorrect={false}
-                                autoCapitalize="none"
-                                keyboardType="email-address"
-                                name="email"
-                                icon="mail"
-                                placeholder="E-mail"
-                                returnKeyType="next"
-                                onSubmitEditing={() => {
-                                    passwordInputRef.current?.focus();
-                                }}
-                            />
-
-                            <Input
-                                ref={passwordInputRef}
-                                name="password"
-                                icon="lock"
-                                placeholder="Digite seu password"
-                                secureTextEntry
-                                returnKeyType="send"
-                                onSubmitEditing={() => {
-                                    formRef.current?.submitForm();
-                                }}
-                            />
-                        </Form>
-
-                        <Button
-                            onPress={() => {
-                                formRef.current?.submitForm();
-                            }}
-                            > Entrar
-                        </Button>
-
-                        <ForgotPassword onPress={() => {}}>
-                            <ForgotPasswordText>
-                                Esqueci minha senha
-                            </ForgotPasswordText>
-                        </ForgotPassword>
-
-                    </Container>
+                      <ForgotPassword onPress={() => {}}>
+                          <ForgotPasswordText>
+                              Esqueci minha senha
+                          </ForgotPasswordText>
+                      </ForgotPassword>
+                      <BackToHome onPress={() => navigation.goBack()} >
+                        <Icon name="arrow-left" size={ 20 } color="#f4ede8" />
+                        <BackToSignInText>
+                          Voltar para início
+                        </BackToSignInText>
+                      </BackToHome>
+                  </Container>
                 </ScrollView>
             </KeyboardAvoidingView>
-
-            <CreatAccountButton onPress={() => navigation.navigate('SignUp')} >
-                <Icon name="log-in" size={ 20 } color="#ff9000" />
-                <CreatAccountButtonText> Criar uma conta </CreatAccountButtonText>
-            </CreatAccountButton>
         </>
     );
 };

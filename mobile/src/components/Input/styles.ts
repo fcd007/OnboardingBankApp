@@ -10,34 +10,35 @@ export const Container = styled.View<ContainerProps>`
     width: 100%;
     height: 60px;
     padding: 0 16px;
-    border-radius: 10px;
+    border-radius: 50px;
 
-    background: #232129;
-    margin-bottom: 8px;
+    background: #fefefe;
+    margin: 0px;
 
     border-width: 2px;
-    border-color: #233129;
+    border-color: #A8A6A6;
 
     flex-direction: row;
     align-items: center;
+    margin-bottom: 4px;
 
-    ${(props) => 
-        props.isErrored && 
+    ${(props) =>
+        props.isErrored &&
         css`
             border-color: #c53030;
     `}
 
-    ${(props) => 
-        props.isFocused && 
+    ${(props) =>
+        props.isFocused &&
         css`
-            border-color: #ff9000;
+            border-color: #5E67C8;
     `}
 `;
 
 export const TextInput = styled.TextInput`
     flex: 1;
     font-family: 'RobotoSlab-Regular';
-    color: #f4ede8;
+    color: #353535;
     font-size: 20px;
 `;
 
