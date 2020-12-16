@@ -28,7 +28,8 @@ import {
   SubTitle,
   TopHeader,
   BackToSignIn,
-  BackToSignInText
+  BackToSignInText,
+  ContentText
 } from './styles';
 
 interface SignUpFormData {
@@ -95,10 +96,8 @@ const SignUpCont: React.FC = () => {
                 >
                     <TopHeader>
                       <Image source={ logoImg } />
-                      {/* <View> */}
-                          <Title>Muito bom!</Title>
-                          <SubTitle>Precisamos conhecer mais sobre você</SubTitle>
-                        {/* </View> */}
+                        <Title>Muito bom!</Title>
+                        <SubTitle>Precisamos conhecer mais sobre você</SubTitle>
                     </TopHeader>
                     <Container>
                         <Form
@@ -117,13 +116,16 @@ const SignUpCont: React.FC = () => {
                             />
 
                         </Form>
+                        <ContentText>
+                          Vamos enviar por SMS um código de validação
+                          do número do seu telefone.
+                        </ContentText>
                         <Button onPress={() =>{
                           formRef.current?.submitForm()
                           navigation.navigate('Home')
                           }}>
                             Próximo Passo
                         </Button>
-
                     </Container>
                 </ScrollView>
             </KeyboardAvoidingView>

@@ -28,12 +28,21 @@ export const Title = styled.Text`
 `;
 
 export const SubTitle = styled.Text`
-    font-family: 'RobotoSlab';
+    font-family: 'RobotoSlab-Regular';
 
     color: #f4ede8;
     font-size: 16px;
     line-height: 36px;
     margin: 0;
+`;
+
+export const ContentText = styled.Text`
+    font-family: 'RobotoSlab-Regular';
+
+    color: #A8A6A6;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0px 20px 20px;
 `;
 
 export const BackToSignIn = styled.TouchableOpacity`
