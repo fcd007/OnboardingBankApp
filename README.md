@@ -1,5 +1,5 @@
-# Barber-app-web-mobile
-Projeto goBarber JavaScript/Typescript | ReactJS | React-Native | PostgreSQL: Docker image | TypeORM
+# Bank App Mobile
+Projeto Banco App JavaScript/Typescript | ReactJS | React-Native | PostgreSQL: Docker image | TypeORM
 
 ## Available Scripts to project frontend
 
