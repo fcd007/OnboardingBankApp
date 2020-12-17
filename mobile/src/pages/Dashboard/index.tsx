@@ -5,9 +5,9 @@ import { useAuth } from '../../hooks/auth';
 
 const Dashboard: React.FC = () => {
     const { signOut } = useAuth();
-    return ( 
+    return (
         <View style={{ flex: 1, justifyContent: 'center' }}>
-            <Button title="Sair" onPress={ signOut } />
+            <Button title="Dashboard Logada" onPress={ signOut } />
         </View>
     );
 };

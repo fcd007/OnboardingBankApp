@@ -124,7 +124,7 @@ const SignUpCont: React.FC = () => {
                           formRef.current?.submitForm()
                           navigation.navigate('Home')
                           }}>
-                            Próximo Passo
+                            Finalizar
                         </Button>
                     </Container>
                 </ScrollView>
